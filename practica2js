@@ -1,0 +1,22 @@
+function sumaDeFracciones(n) {
+    let suma = 0;
+    let resultado = [];
+
+    for (let i = 1; i <= n; i *= 2) {
+        let fraccion = 1 / i;
+        resultado.push([i, fraccion, suma += fraccion]);
+    }
+
+    return resultado;
+}
+
+function imprimirTabla(resultados) {
+    console.log("Potencia\tFracción\tSuma");
+    for (let resultado of resultados) {
+        console.log(`${resultado[0]}\t\t${resultado[1].toFixed(6)}\t\t${resultado[2].toFixed(6)}`);
+    }
+}
+
+const n = 64; // Puedes ajustar este valor según tus necesidades
+const resultados = sumaDeFracciones(n);
+imprimirTabla(resultados);
