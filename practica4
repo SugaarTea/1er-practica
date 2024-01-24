@@ -1,0 +1,18 @@
+function productoInterno(a, b) {
+    let producto = 0;
+    for (let i = 0; i < a.length; i++) {
+        producto += a[i] * b[i];
+    }
+    return producto;
+}
+
+function sonOrtogonales(a, b) {
+    return productoInterno(a, b) === 0 ? "a y b son ortogonales" : "a y b no son ortogonales";
+}
+
+let vectorA = [5, 1, 6];
+let vectorB = [1, -2, 8];
+
+console.log("Producto interno entre a y b:");
+console.log(productoInterno(vectorA, vectorB));
+console.log(sonOrtogonales(vectorA, vectorB));
