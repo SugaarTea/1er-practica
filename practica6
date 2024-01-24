@@ -1,0 +1,24 @@
+// Crear un objeto para almacenar los equipos y los partidos
+const equipos = {};
+const rondas = ["Cuartos", "Semifinales", "Finales"];
+
+// Pedir al usuario que ingrese los nombres de ocho equipos
+for (let i = 1; i <= 8; i++) {
+  equipos["Equipo" + i] = prompt(`Nombre del equipo ${i}:`);
+}
+
+// Simular los partidos y avanzar a la siguiente ronda
+for (let ronda of rondas) {
+  console.log(`${ronda}:`);
+  const ganadores = {};
+  for (let i = 1; i <= 4; i++) {
+    const equipoA = `Equipo${2 * i - 1}`;
+    const equipoB = `Equipo${2 * i}`;
+    const ganador = prompt(`${equipos[equipoA]} - ${equipos[equipoB]}:`);
+    ganadores[`Equipo${i}`] = equipos[`Equipo${ganador === "a" ? 2 * i - 1 : 2 * i}`];
+  }
+  equipos = ganadores;
+}
+
+// Anunciar al campeón
+console.log(`El campeón es: ${equipos["Equipo1"]}`);
